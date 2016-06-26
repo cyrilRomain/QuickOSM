@@ -128,7 +128,7 @@ class QgisInterface(QObject):
         # simulate iface.legendInterface().layers()
         return list(QgsMapLayerRegistry.instance().mapLayers().values())
 
-    @pyqtSlot('QStringList')
+    @pyqtSlot(result='QStringList')
     def addLayers(self, layers):
         """Handle layers being added to the registry so they show up in canvas.
 
@@ -154,7 +154,7 @@ class QgisInterface(QObject):
         self.canvas.setLayerSet(final_layers)
         # LOGGER.debug('Layer Count After: %s' % len(self.canvas.layers()))
 
-    @pyqtSlot('QgsMapLayer')
+    @pyqtSlot(result='QgsMapLayer')
     def addLayer(self, layer):
         """Handle a layer being added to the registry so it shows up in canvas.
 

@@ -22,8 +22,11 @@
 """
 from builtins import object
 
-from qgis.PyQt.QtNetwork import QNetworkRequest, QNetworkReply
-from qgis.PyQt.QtCore import QUrl
+from qgis.PyQt.QtNetwork import (
+    QNetworkRequest,
+    QNetworkReply,
+    QNetworkAccessManager)
+from qgis.PyQt.QtCore import QUrl, QUrlQuery, QEventLoop
 import json
 
 from QuickOSM.core.utilities.operating_system import get_proxy
@@ -35,7 +38,7 @@ class Nominatim(object):
     """Manage connexion to Nominatim."""
 
     def __init__(self,
-                 url="http://nominatim.openstreetmap.org/search?format=json"):
+                 url="http://nominatim.openstreetmap.org/search?"):
         """
         Constructor
         @param url:URL of Nominatim
@@ -61,19 +64,22 @@ class Nominatim(object):
         @rtype: str
         """
 
-        url_query = QUrl(self.__url)
-
-        query = QUrl.toPercentEncoding(query)
-        url_query.addEncodedQueryItem('q', query)
+        query = str(QUrl.toPercentEncoding(query), 'utf-8')
+        url_query = QUrlQuery()
+        url_query.addQueryItem('format', 'json')
+        url_query.addQueryItem('q', query)
         url_query.addQueryItem('info', 'QgisQuickOSMPlugin')
-        url_query.setPort(80)
+
+        url = QUrl(self.__url)
+        url.setPort(80)
+        url.setQuery(url_query)
 
         proxy = get_proxy()
         if proxy:
             self.network.setProxy(proxy)
 
-        request = QNetworkRequest(url_query)
-        request.setRawHeader("User-Agent", "QuickOSM")
+        request = QNetworkRequest(url)
+        request.setRawHeader(b"User-Agent", b"QuickOSM")
         self.network_reply = self.network.get(request)
         self.loop = QEventLoop()
         self.network.finished.connect(self._end_of_request)

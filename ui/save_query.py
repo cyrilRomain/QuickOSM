@@ -8,7 +8,7 @@ from builtins import object
 #
 # WARNING! All changes made in this file will be lost!
 
-from PyQt import QtCore, QtGui
+from qgis.PyQt import QtCore, QtGui
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8

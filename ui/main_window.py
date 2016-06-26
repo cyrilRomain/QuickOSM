@@ -9,7 +9,7 @@ from builtins import object
 #
 # WARNING! All changes made in this file will be lost!
 
-from PyQt import QtCore, QtGui
+from qgis.PyQt import QtCore, QtGui, QtWebKit, QtWidgets
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -122,7 +122,7 @@ class Ui_ui_main_window(object):
         self.osm_file = OsmFileWidget()
         self.osm_file.setObjectName(_fromUtf8("osm_file"))
         self.stackedWidget.addWidget(self.osm_file)
-        self.parameters = QtGui.QWidget()
+        self.parameters = QtWidgets.QWidget()
         self.parameters.setObjectName(_fromUtf8("parameters"))
         self.verticalLayout_2 = QtGui.QVBoxLayout(self.parameters)
         self.verticalLayout_2.setObjectName(_fromUtf8("verticalLayout_2"))
@@ -173,14 +173,14 @@ class Ui_ui_main_window(object):
         spacerItem1 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
         self.verticalLayout_2.addItem(spacerItem1)
         self.stackedWidget.addWidget(self.parameters)
-        self.help = QtGui.QWidget()
+        self.help = QtWidgets.QWidget()
         self.help.setObjectName(_fromUtf8("help"))
         self.verticalLayout_3 = QtGui.QVBoxLayout(self.help)
         self.verticalLayout_3.setObjectName(_fromUtf8("verticalLayout_3"))
         self.scrollArea = QtGui.QScrollArea(self.help)
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
-        self.scrollAreaWidgetContents = QtGui.QWidget()
+        self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 89, 58))
         self.scrollAreaWidgetContents.setObjectName(_fromUtf8("scrollAreaWidgetContents"))
         self.verticalLayout_5 = QtGui.QVBoxLayout(self.scrollAreaWidgetContents)
@@ -201,14 +201,14 @@ class Ui_ui_main_window(object):
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.verticalLayout_3.addWidget(self.scrollArea)
         self.stackedWidget.addWidget(self.help)
-        self.about = QtGui.QWidget()
+        self.about = QtWidgets.QWidget()
         self.about.setObjectName(_fromUtf8("about"))
         self.verticalLayout_4 = QtGui.QVBoxLayout(self.about)
         self.verticalLayout_4.setObjectName(_fromUtf8("verticalLayout_4"))
         self.scrollArea_2 = QtGui.QScrollArea(self.about)
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollArea_2.setObjectName(_fromUtf8("scrollArea_2"))
-        self.scrollAreaWidgetContents_2 = QtGui.QWidget()
+        self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
         self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, -39, 636, 845))
         self.scrollAreaWidgetContents_2.setObjectName(_fromUtf8("scrollAreaWidgetContents_2"))
         self.verticalLayout_9 = QtGui.QVBoxLayout(self.scrollAreaWidgetContents_2)
@@ -430,7 +430,6 @@ class Ui_ui_main_window(object):
         self.groupBox_4.setTitle(_translate("ui_main_window", "Licence", None))
 
 from qgis import gui
-from PyQt4 import QtWebKit
 from .query_dialog import QueryWidget
 from .osm_file_dialog import OsmFileWidget
 from .quick_query_dialog import QuickQueryWidget
