@@ -26,7 +26,12 @@ from builtins import str
 import re
 from os.path import isdir
 
-from qgis.PyQt.QtWidgets import QDockWidget, QMenu, QAction, QApplication, QDialogButtonBox
+from qgis.PyQt.QtWidgets import (
+    QDockWidget,
+    QMenu,
+    QAction,
+    QApplication,
+    QDialogButtonBox)
 from qgis.PyQt.QtGui import QDesktopServices
 from qgis.PyQt.QtCore import pyqtSignal, Qt, QUrl
 from qgis.gui import QgsMessageBar

@@ -27,7 +27,11 @@ from builtins import range
 from json import load
 from os.path import dirname, abspath, join, isfile, isdir
 
-from qgis.PyQt.QtWidgets import QDockWidget, QApplication, QCompleter, QDialogButtonBox
+from qgis.PyQt.QtWidgets import (
+    QDockWidget,
+    QApplication,
+    QCompleter,
+    QDialogButtonBox)
 from qgis.PyQt.QtCore import Qt
 from qgis.gui import QgsMessageBar
 

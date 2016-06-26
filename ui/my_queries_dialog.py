@@ -26,7 +26,13 @@ from builtins import range
 import re
 from os.path import isdir
 from qgis.PyQt.QtCore import pyqtSignal, QFile, Qt
-from qgis.PyQt.QtWidgets import QTreeWidgetItem, QMenu, QAction, QMessageBox, QApplication, QDockWidget
+from qgis.PyQt.QtWidgets import (
+    QTreeWidgetItem,
+    QMenu,
+    QAction,
+    QMessageBox,
+    QApplication,
+    QDockWidget)
 from qgis.utils import iface
 from qgis.gui import QgsMessageBar
 

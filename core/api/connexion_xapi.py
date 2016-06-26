@@ -24,7 +24,9 @@ from future import standard_library
 standard_library.install_aliases()
 from builtins import object
 
-import urllib.request, urllib.error, urllib.parse
+import urllib.request
+import urllib.error
+import urllib.parse
 import tempfile
 
 from QuickOSM.core.exceptions import NetWorkErrorException

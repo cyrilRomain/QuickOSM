@@ -76,7 +76,9 @@ class Actions(object):
                 var.openUrl(QUrl(url))
 
             elif field == "josm":
-                import urllib.request, urllib.error, urllib.parse
+                import urllib.request
+                import urllib.error
+                import urllib.parse
                 try:
                     url = "http://localhost:8111/load_object?objects=" + value
                     urllib.request.urlopen(url).read()
