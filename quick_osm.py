@@ -20,23 +20,25 @@
  *                                                                         *
  ***************************************************************************/
 """
+from __future__ import absolute_import
+from builtins import object
 
 from os.path import dirname, join, exists, abspath, isfile
 from json import load
-from PyQt4.QtCore import \
-    QSettings, QTranslator, qVersion, QCoreApplication, Qt
-from PyQt4.QtGui import QMenu, QIcon, QAction, QPushButton
+from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication, Qt
+from qgis.PyQt.QtWidgets import QMenu, QAction, QPushButton
+from qgis.PyQt.QtGui import QIcon
 
 from qgis.gui import QgsMessageBar
 from processing.core.Processing import Processing
 
-from ui.main_window_dialog import MainWindowDialog
-from ui.my_queries_dialog import MyQueriesDockWidget
-from ui.query_dialog import QueryDockWidget
-from ui.osm_file_dialog import OsmFileDockWidget
-from ui.quick_query_dialog import QuickQueryDockWidget
-from quick_osm_processing.algorithm_provider import QuickOSMAlgorithmProvider
-from core.utilities.tools import (
+from .ui.main_window_dialog import MainWindowDialog
+from .ui.my_queries_dialog import MyQueriesDockWidget
+from .ui.query_dialog import QueryDockWidget
+from .ui.osm_file_dialog import OsmFileDockWidget
+from .ui.quick_query_dialog import QuickQueryDockWidget
+from .quick_osm_processing.algorithm_provider import QuickOSMAlgorithmProvider
+from .core.utilities.tools import (
     get_current_version,
     get_setting,
     set_setting,
@@ -46,7 +48,7 @@ from core.utilities.tools import (
 )
 
 
-class QuickOSM:
+class QuickOSM(object):
 
     def __init__(self, iface):
         """Constructor.

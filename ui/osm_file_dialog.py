@@ -20,11 +20,12 @@
  *                                                                         *
  ***************************************************************************/
 """
+from __future__ import absolute_import
 
 from os.path import isdir, dirname, abspath, join, isfile
 
-from PyQt4.QtCore import Qt
-from PyQt4.QtGui import QFileDialog, QApplication, QDockWidget
+from qgis.PyQt.QtCore import Qt
+from qgis.PyQt.QtWidgets import QFileDialog, QApplication, QDockWidget
 from qgis.core import QgsMapLayerRegistry
 
 from QuickOSM.core.utilities.tools import tr
@@ -39,8 +40,8 @@ from QuickOSM.core.utilities.utilities_qgis import \
     is_osm_driver_enabled, is_ogr_version_ok
 from QuickOSM.core.parser.osm_parser import OsmParser
 from QuickOSM.controller.process import open_file
-from QuickOSMWidget import QuickOSMWidget
-from osm_file import Ui_ui_osm_file
+from .QuickOSMWidget import QuickOSMWidget
+from .osm_file import Ui_ui_osm_file
 
 
 class OsmFileWidget(QuickOSMWidget, Ui_ui_osm_file):
@@ -167,7 +168,7 @@ class OsmFileWidget(QuickOSMWidget, Ui_ui_osm_file):
                     layers=output_geometry_types)
                 layers = osm_parser.parse()
 
-                for item in layers.values():
+                for item in list(layers.values()):
                     QgsMapLayerRegistry.instance().addMapLayer(item)
 
             else:
@@ -178,9 +179,9 @@ class OsmFileWidget(QuickOSMWidget, Ui_ui_osm_file):
                     output_dir=output_directory,
                     prefix_file=prefix_file)
 
-        except QuickOsmException, e:
+        except QuickOsmException as e:
             self.display_geo_algorithm_exception(e)
-        except Exception, e:  # pylint: disable=broad-except
+        except Exception as e:  # pylint: disable=broad-except
             self.display_exception(e)
         finally:
             QApplication.restoreOverrideCursor()

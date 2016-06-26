@@ -27,8 +27,8 @@ from shutil import copytree, copy2
 from os import listdir, makedirs, stat
 from os.path import join, isdir, exists
 
-from PyQt4.QtCore import QSettings
-from PyQt4.QtNetwork import QNetworkProxy
+from qgis.PyQt.QtCore import QSettings
+from qgis.PyQt.QtNetwork import QNetworkProxy
 
 
 def get_proxy():

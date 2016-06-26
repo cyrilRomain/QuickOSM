@@ -20,13 +20,15 @@
  *                                                                         *
  ***************************************************************************/
 """
+from __future__ import print_function
+from builtins import str
 
 from os.path import split, join, isfile
 from sys import exc_info
 
-from PyQt4.QtGui import \
-    QWidget, QFileDialog, QApplication, QDesktopServices, QCompleter
-from PyQt4.QtCore import QUrl
+from qgis.PyQt.QtWidgets import QWidget, QFileDialog, QApplication, QCompleter
+from qgis.PyQt.QtGui import QDesktopServices
+from qgis.PyQt.QtCore import QUrl
 from qgis.utils import iface
 from qgis.gui import QgsMessageBar
 from qgis.core import (
@@ -78,7 +80,7 @@ class QuickOSMWidget(QWidget):
         return existing_places[:10]
 
     def nominatim_value(self):
-        value = unicode(self.lineEdit_nominatim.text())
+        value = str(self.lineEdit_nominatim.text())
         new_list = self.sort_nominatim_places(self.last_places, value)
 
         f = open(self.last_nominatim_places_filepath, 'w')
@@ -246,11 +248,13 @@ class QuickOSMWidget(QWidget):
         """
         exc_type, _, exc_tb = exc_info()
         f_name = split(exc_tb.tb_frame.f_code.co_filename)[1]
-        print(exc_type, f_name, exc_tb.tb_lineno)
+        # fix_print_with_import
+        print((exc_type, f_name, exc_tb.tb_lineno))
         _, _, tb = exc_info()
         import traceback
         traceback.print_tb(tb)
-        print e
+        # fix_print_with_import
+        print(e)
         display_message_bar(
             tr('QuickOSM', 'Error in the python console, please report it'),
             level=QgsMessageBar.CRITICAL,

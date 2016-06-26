@@ -20,10 +20,10 @@
  *                                                                         *
  ***************************************************************************/
 """
+from builtins import object
 
-from PyQt4.QtNetwork import \
-    QNetworkAccessManager, QNetworkRequest, QNetworkReply
-from PyQt4.QtCore import QUrl, QEventLoop
+from qgis.PyQt.QtNetwork import QNetworkRequest, QNetworkReply
+from qgis.PyQt.QtCore import QUrl
 import json
 
 from QuickOSM.core.utilities.operating_system import get_proxy
