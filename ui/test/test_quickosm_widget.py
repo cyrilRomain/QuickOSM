@@ -22,14 +22,13 @@
 """
 
 import unittest
+from QuickOSM.ui.QuickOSMWidget import QuickOSMWidget
 
 # This import is to enable SIP API V2
 # noinspection PyUnresolvedReferences
 import qgis  # pylint: disable=unused-import
 from test.utilities import get_qgis_app
 QGIS_APP, CANVAS, IFACE, PARENT = get_qgis_app()
-
-from QuickOSM.ui.QuickOSMWidget import QuickOSMWidget
 
 
 class TestQuickOSMWidget(unittest.TestCase):

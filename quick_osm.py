@@ -25,6 +25,7 @@ from builtins import object
 
 from os.path import dirname, join, exists, abspath, isfile
 from json import load
+from qgis.PyQt.QtCore import qVersion
 from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication, Qt
 from qgis.PyQt.QtWidgets import QMenu, QAction, QPushButton
 from qgis.PyQt.QtGui import QIcon

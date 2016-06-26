@@ -40,7 +40,6 @@ from qgis.core import (
 
 from QuickOSM.core.utilities.utilities_qgis import display_message_bar
 from QuickOSM.core.utilities.tools import tr, get_QuickOSM_folder
-from QuickOSM.core.exceptions import NoLayerException
 
 
 class QuickOSMWidget(QWidget):

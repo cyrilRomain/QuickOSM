@@ -34,6 +34,7 @@ from qgis.PyQt.QtWidgets import (
     QDialogButtonBox)
 from qgis.PyQt.QtCore import Qt
 from qgis.gui import QgsMessageBar
+from qgis.utils import iface
 
 from QuickOSM.core.exceptions import (
     QuickOsmException,
@@ -46,9 +47,6 @@ from QuickOSM.core.query_factory import QueryFactory
 from QuickOSM.controller.process import process_quick_query
 from .QuickOSMWidget import QuickOSMWidget
 from .quick_query import Ui_ui_quick_query
-
-
-from qgis.utils import iface
 
 
 class QuickQueryWidget(QuickOSMWidget, Ui_ui_quick_query):
